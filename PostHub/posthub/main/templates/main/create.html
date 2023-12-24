@@ -1,0 +1,26 @@
+{% extends "main/base.html" %}
+
+{% block title %}Create{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+
+        <div class="form-group">
+            <center><h1>Создать статью</h1></center>
+            <form method="post" , enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.title }}<br>
+                {{ form.text }}<br>
+                {{ form.img }}<br>
+                <br>
+                <center><button type="submit" style="max-width:150%;" class="btn btn-success">Опубликовать</button></center>
+                <span>{{ error }}</span>
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+{% endblock %}
+

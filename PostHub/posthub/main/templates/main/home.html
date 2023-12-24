@@ -1,0 +1,63 @@
+{% extends "main/base.html" %}
+
+{% block title %}PostHub{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="album py-5 bg-body-tertiary">
+                <div class="container">
+
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                        {% for post in post_list %}
+                        <div class="col">
+                            <div class="card shadow-sm ">
+                                <a href="{{ post.id }}"><img src="{{ post.img.url }}" class="img-fluid rounded-top"></a>
+                                <div class="card-body">
+                                    <h6><a class="text-decoration-none text-reset" href="{{ post.id }}">
+                                        <p class="card-text">
+                                            <ya-tr-span data-index="1-0" data-translated="true" data-source-lang="en"
+                                                        data-target-lang="ru"
+                                                        data-value="This is a wider card with supporting text below as a natural lead-in to additional content. "
+                                                        data-ch="0" data-type="trSpan">{{ post.title }}
+                                            </ya-tr-span>
+                                            <ya-tr-span data-index="1-1" data-translated="true" data-source-lang="en"
+                                                        data-target-lang="ru"
+                                                        data-value="This content is a little bit longer."
+                                                        data-translation="Этот контент немного длиннее." data-ch="0"
+                                                        data-type="trSpan"></ya-tr-span>
+                                        </p>
+                                    </a></h6>
+                                    <div class="d-flex justify-content-between align-items-center ">
+                                        <div class="btn-group">
+                                               <img href="{{ post.id }}" src="{{ post.author.profile.image.url }}" class="rounded-circle" width="40" height="40" alt="Фото">
+                                            <a href="{% url 'user-posts' post.author.username %}" class="text-dark btn p-1 m-1">
+                                                <ya-tr-span data-index="2-0" data-translated="true"
+                                                            data-source-lang="en" data-target-lang="ru"
+                                                            data-value="View" data-translation="Вид" data-ch="0"
+                                                            data-type="trSpan"><h6><strong>{{ post.author }}</strong></h6>
+                                                </ya-tr-span>
+                                            </a>
+                                        </div>
+                                        <small class="text-body-secondary">
+                                            <ya-tr-span data-index="3-0" data-translated="true" data-source-lang="en"
+                                                        data-target-lang="ru" data-value="9 mins"
+                                                        data-translation="9 минут" data-ch="0" data-type="trSpan">{{ post.created_at }}
+                                            </ya-tr-span>
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "main/base.html" %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-8 p-3">
+            <div class="card px-3 pt-3" style="max-width: 50rem">
+                <!-- News block -->
+                <div>
+                    <!-- Featured image -->
+                    <div class="bg-image hover-overlay shadow-1-strong ripple rounded-5 mb-4"
+                         data-mdb-ripple-color="light">
+                        <img src="{{ post.img.url }}" class="img-fluid"/>
+                        <a href="#!">
+                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                        </a>
+                    </div>
+
+                    <!-- Article data -->
+                    <div class="row mb-3">
+                        <div class="col-6">
+                            <img href="{{ post.id }}" src="{{ post.author.profile.image.url }}" class="rounded-circle" width="35" height="35" alt="Фото">
+                            <a href="" class="text-info text-decoration-none ">
+                                <i class="fas fa-plane"></i>
+                                {{ post.author }}
+                            </a>
+                            <a href="" class="link-danger text-decoration-none m-1">Подписаться</a>
+                        </div>
+
+                        <div class="col-6 text-end">
+                            <u>{{ post.created_at }}</u>
+                        </div>
+                    </div>
+
+                    <!-- Article title and description -->
+
+                    <h3>{{ post.title }}</h3>
+
+                    <p>
+                    <h5 class="mynotsoboldtitle">{{ post.text|linebreaksbr }}</h5>
+                    <style>
+                        .mynotsoboldtitle { font-weight: normal; }
+                    </style>
+                    </p>
+
+
+                    <hr/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+

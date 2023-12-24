@@ -1,0 +1,20 @@
+{% extends "main/base.html" %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="album py-5 bg-body-tertiary">
+                <center><div class="container">
+                    <h2>Вы вышли из своей учетной записи</h2>
+                    <div class="border-top pt-3">
+                        <small class="text-muted">
+                            <a href="{% url 'login' %}">Войти</a>
+                        </small>
+                    </div>
+                </div></center>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
